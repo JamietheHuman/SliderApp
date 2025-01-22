@@ -9,7 +9,7 @@ export default function Home() {
 
     const handleMouseDown = (e) => {
         e.preventDefault();
-        document.body.style.userSelect = "none"; // ^ kill stupid selection ^
+        document.body.style.userSelect = "none"; // Disable selection
 
         const sliderContainer = sliderRef.current.parentElement;
         const containerRect = sliderContainer.getBoundingClientRect();
@@ -21,7 +21,7 @@ export default function Home() {
         };
 
         const handleMouseUp = () => {
-            document.body.style.userSelect = ""; // bring back selecting
+            document.body.style.userSelect = ""; // Re-enable selection
             window.removeEventListener("mousemove", handleMouseMove);
             window.removeEventListener("mouseup", handleMouseUp);
         };
@@ -31,7 +31,10 @@ export default function Home() {
     };
 
     return (
-        <div className={styles.imageContainer}>
+        <div
+            className={styles.imageContainer}
+            style={{ width: "100%", height: "auto", overflow: "hidden" }} // Ensure iframe-safe styling
+        >
             <img src="/images/before.png" alt="Gray background" className={styles.baseImage} />
             <img
                 src="/images/after.png"
@@ -42,7 +45,6 @@ export default function Home() {
                     maskImage: `linear-gradient(to right, black ${gradientPosition}%, transparent ${gradientPosition}%)`,
                 }}
             />
-            {/* epic slider */}
             <div
                 ref={sliderRef}
                 className={styles.slider}
