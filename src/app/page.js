@@ -33,7 +33,7 @@ export default function Home() {
     return (
         <div
             className={styles.imageContainer}
-            style={{ width: "100%", height: "auto", overflow: "hidden" }} // Ensure iframe-safe styling
+            style={{ width: "100%", height: "auto", overflow: "hidden" }}
         >
             <img src="/images/before.png" alt="Gray background" className={styles.baseImage} />
             <img
