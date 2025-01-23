@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "prettier": "npx prettier src --check",
+    "format": "npm run prettier -- --write",
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
@@ -10,8 +12,10 @@
   },
   "dependencies": {
     "next": "15.1.5",
+    "prettier": "^3.4.2",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "sass": "^1.83.4"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
